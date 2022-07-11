@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Panificadora Doce de Maria</title>
+        <link rel="stylesheet" href="../css/css.css">
+    </head>
+    <script>
+
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function passaSlide(n) {
+    showSlides(slideIndex += n);
+    }
+
+
+    function slideAtual(n) {
+    showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("imagem");
+    let dots = document.getElementsByClassName("ponto");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    }
+
+
+    </script>
+    <body>
+        
+        <header>
+            <img src="/images/logo_transparente.png" width="24%" alt="logo">
+            <h1>Panificadora Doce de Maria</h1>
+        </header>
+        
+        <nav id="nav-bar">
+            <ul>
+                <li>Link1</li>
+                <li>Link2</li>
+                <li>Link3</li>
+                <li>Link4</li>
+                <li>Link5</li>
+                <li>Link6</li>
+            </ul>
+        </nav>
+        
+        <div class="-principal">
+
+            <div class="-slider">
+
+                <div class="imagem efeito">
+                    <div class="idfoto">1 / 3</div>
+                    <img src="../images/logo_transparente.png" style="width:100%; height: 230px;">
+                    <div class="text">slide 1</div>
+                </div>
+                <div class="imagem efeito">
+                    <div class="idfoto">2 / 3</div>
+                    <img src="../images/background1.jpg" style="width:100%; height: 230px;">
+                    <div class="text">slide 2</div>
+                </div>
+                <div class="imagem efeito">
+                    <div class="idfoto">3 / 3</div>
+                    <img src="../images/background.jpg" style="width:100%; height: 230px;">
+                    <div class="text">slide 3</div>
+
+                </div>
+                <a class="anterior" onclick="passaSlide(-1)">&#10094;</a>
+                <a class="proximo" onclick="passaSlide(1)">&#10095;</a>
+
+            </div><br>
+            <div style="text-align:center">
+                <span class="ponto" onclick="slideAtual(1)"></span>
+                <span class="ponto" onclick="slideAtual(2)"></span>
+                <span class="ponto" onclick="slideAtual(3)"></span>
+              </div>
+
+        </div>
+
+    </body>
+</html>
